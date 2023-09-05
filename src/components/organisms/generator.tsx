@@ -3,7 +3,6 @@ import Container from "../atoms/container/container";
 import Form from "../molecules/form/form";
 import SignatureResult from "../molecules/signature-result/signature-result";
 import Button from "../atoms/button/button";
-import CopyIcon from "../atoms/icons/copy";
 
 export default function Generator() {
   const [step, setStep] = useState(1);
