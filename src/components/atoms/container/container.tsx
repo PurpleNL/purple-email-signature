@@ -21,8 +21,10 @@ export default function Container({
   position,
   top,
   right,
+  dangerouslySetInnerHTML,
+  className,
 }: {
-  children: ReactNode;
+  children?: ReactNode;
   margin?: string | number;
   display?: CSS.Properties["display"];
   flexDirection?: CSS.Properties["flexDirection"];
@@ -41,9 +43,13 @@ export default function Container({
   position?: CSS.Properties["position"];
   top?: CSS.Properties["top"];
   right?: CSS.Properties["right"];
+  dangerouslySetInnerHTML?: { __html: string };
+  className?: string;
 }) {
   return (
     <div
+      className={className}
+      dangerouslySetInnerHTML={dangerouslySetInnerHTML}
       style={{
         margin,
         display,

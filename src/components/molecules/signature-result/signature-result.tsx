@@ -3,6 +3,7 @@ import Button from "../../atoms/button/button";
 import Container from "../../atoms/container/container";
 import CopyIcon from "../../atoms/icons/copy";
 import Snackbar from "../../atoms/snackbar/snackbar";
+import Tooltip from "../../atoms/tooltip/tooltip";
 
 const Title = (e: string) =>
   `<br/><span style="color:#444444;font-size:13px;line-height: 1.5;font-family:tahoma, sans-serif"><i>${e}</i></span>`;
@@ -71,19 +72,22 @@ export default function SignatureResult({
       setCopiedHtml(false);
     }, 3000);
   };
+
   return (
-    <Container display="flex" flexDirection="row">
+    <Container display="flex" flexDirection="column">
       <Container
         margin="3rem"
         padding="2rem"
         backgroundColor="#fff"
         position="relative"
       >
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <Container dangerouslySetInnerHTML={{ __html: html }} />
         <Container position="absolute" top="5px" right="5px">
-          <Button isIcon={true} onClick={handleCopyHtml} title="Copy html">
-            <CopyIcon />
-          </Button>
+          <Tooltip text="Copy html">
+            <Button isIcon={true} onClick={handleCopyHtml}>
+              <CopyIcon />
+            </Button>
+          </Tooltip>
         </Container>
       </Container>
       {copiedHtml && <Snackbar label="Copied html" />}
