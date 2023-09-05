@@ -1,0 +1,13 @@
+.main-button {
+  padding: 15px 32px;
+}
+
+.icon-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.icon-button:hover {
+  background-color: rgb(219, 216, 216);
+}

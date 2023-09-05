@@ -1,0 +1,15 @@
+input {
+  border: 1px solid #fff;
+  font-size: 1.125rem;
+  width: 100%;
+  max-width: 455px;
+  color: #fff;
+  box-sizing: border-box;
+  background-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 14px 12px;
+  &:focus {
+    outline: none;
+  }
+}
