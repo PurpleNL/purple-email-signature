@@ -35,7 +35,7 @@ const Result = ({
           <div style="white-space:nowrap !important">
               <div><span style="color:#979797;font-size:.9em">US Office</span>&nbsp;<span
                       style="color:#000000;font-size:.9em;text-decoration:none">1213 West Morehead Street,
-                      5-120 Charlotte, NC 28208</span> </div>
+                      5th floor #120 Charlotte, NC 28208</span> </div>
 
           <div style="white-space:nowrap !important">
               <span style="color:#979797;font-size:.9em">Experience
