@@ -11,8 +11,6 @@ export default function Form({
   setEmail,
   phone,
   setPhone,
-  linkedin,
-  setLinkedin,
 }: {
   name: string;
   setName: (name: string) => void;
@@ -22,8 +20,6 @@ export default function Form({
   setEmail: (email: string) => void;
   phone: string;
   setPhone: (phone: string) => void;
-  linkedin: string;
-  setLinkedin: (phone: string) => void;
 }) {
   return (
     <Container>
@@ -57,14 +53,6 @@ export default function Form({
           onChange={(e) => setPhone(e.target.value)}
           value={phone}
           name="phone"
-        />
-      </Container>
-      <Container margin={20}>
-        <Label text="LinkedIn" />
-        <Input
-          onChange={(e) => setLinkedin(e.target.value)}
-          value={linkedin}
-          name="linkedin"
         />
       </Container>
     </Container>

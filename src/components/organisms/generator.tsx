@@ -11,7 +11,6 @@ export default function Generator() {
   const [title, setTitle] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [linkedin, setLinkedin] = useState("");
   return (
     <Container>
       {step === 1 && (
@@ -25,8 +24,6 @@ export default function Generator() {
             setEmail={setEmail}
             phone={phone}
             setPhone={setPhone}
-            linkedin={linkedin}
-            setLinkedin={setLinkedin}
           />
           <Container margin={20}>
             <Button onClick={() => setStep(2)}>Generate email signature</Button>
@@ -40,7 +37,6 @@ export default function Generator() {
             name={name}
             title={title}
             phone={phone}
-            linkedin={linkedin}
           />
           <Container margin={20}>
             <Button onClick={() => setStep(1)}>Update info</Button>
