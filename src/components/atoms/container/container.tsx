@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import type * as CSS from "csstype";
 
 export default function Container({
+  id,
   children,
   margin,
   display,
@@ -24,6 +25,7 @@ export default function Container({
   dangerouslySetInnerHTML,
   className,
 }: {
+  id?: string;
   children?: ReactNode;
   margin?: string | number;
   display?: CSS.Properties["display"];
@@ -48,6 +50,7 @@ export default function Container({
 }) {
   return (
     <div
+      id={id}
       className={className}
       dangerouslySetInnerHTML={dangerouslySetInnerHTML}
       style={{

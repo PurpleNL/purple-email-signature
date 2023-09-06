@@ -5,26 +5,23 @@ import CopyIcon from "../../atoms/icons/copy";
 import Snackbar from "../../atoms/snackbar/snackbar";
 import Tooltip from "../../atoms/tooltip/tooltip";
 
-const Title = (e: string) =>
-  `<br/><span style="color:#444444;font-size:13px;line-height: 1.5;font-family:tahoma, sans-serif"><i>${e}</i></span>`;
-const Phone = (e: string) =>
-  `<br/><span style="color:#444444;font-size:13px;line-height: 1.5;font-family:tahoma, sans-serif">${e}</span>`;
-
 const Result = ({
   name,
   title,
   phone,
   email,
+  linkedin,
 }: {
   name: string;
   title: string;
   phone: string;
   email: string;
+  linkedin: string;
 }) => {
-  return `<table style="font:90% Tahoma;font-size:initial;color:#000000;text-align: left;">
+  return `<table id="result" style="font:90% Tahoma;font-size:initial;color:#000000;text-align: left;">
   <tr>
-      <td style="vertical-align:top;padding:0 8px 5px 0"><a href="https://img.newoldstamp.com/r/573687/p"
-              target="_blank"><img src="https://img.newoldstamp.com/p/573687" style="display:block" width="250"
+      <td style="vertical-align:top;padding:0 8px 5px 0"><a href="https://www.purplestorytelling.com/"
+              target="_blank"><img src="https://purple-generic.s3.eu-central-1.amazonaws.com/signature/email-sig-img.png" style="display:block" width="250"
                   alt="photo-logo" /></a></td>
       <td style="vertical-align:top;color:#979797;font:90% Tahoma;border-left:3px solid #979797;padding:0 0 5px 8px">
           <div style="color:#040404;font-size:1.3em">
@@ -37,13 +34,6 @@ const Result = ({
           <div style="white-space:nowrap !important"><span style="color:#979797;font-size:.9em">EU Office
               </span><span style="color:#000000;font-size:.9em">Suikersilo-West 37, 1165MP Halfweg NL</span>
           </div>
-          <div style="white-space:nowrap !important"><span style="color:#979797;font-size:.9em">Email
-              </span><span><a href="mailto:${email}" target="_blank"
-                      style="color:#000000;font-style:italic;font-size:.9em;text-decoration:none">${email}</a></span>
-              <span style="color:#979797;font-size:.9em">Web </span><span><a
-                      href="https://www.purplestorytelling.com" target="_blank"
-                      style="color:#000000;font-size:.9em;text-decoration:none !important">purplestorytelling.com</a></span>
-          </div>
           <div style="white-space:nowrap !important">
               <div><span style="color:#979797;font-size:.9em">US Office</span>&nbsp;<span
                       style="color:#000000;font-size:.9em;text-decoration:none">1213 West Morehead Street,
@@ -55,7 +45,37 @@ const Result = ({
                   3a, 1165PE
                   Halfweg NL</span>
           </div>
+          <div style="white-space:nowrap !important"><span style="color:#979797;font-size:.9em">Email
+              </span><span><a href="mailto:${email}" target="_blank"
+                      style="color:#000000;font-style:italic;font-size:.9em;text-decoration:none">${email}</a></span>
+              <span style="color:#979797;font-size:.9em">Web </span><span><a
+                      href="https://www.purplestorytelling.com" target="_blank"
+                      style="color:#000000;font-size:.9em;text-decoration:none !important">purplestorytelling.com</a></span>
           </div>
+          
+          </div>
+          <table>
+              <tbody>
+                  <tr>
+                      <td><a style="vertical-align:top" href="${linkedin}"
+                              target="_blank"><img style=""
+                                  src="https://purple-generic.s3.eu-central-1.amazonaws.com/signature/linkedin.png" width="24"
+                                  alt="linkedin"></a></td>
+                      <td><a style="vertical-align:top" href="https://www.instagram.com/purple_digital_storytelling/"
+                              target="_blank"><img style=""
+                                  src="https://purple-generic.s3.eu-central-1.amazonaws.com/signature/instagram.png" width="24"
+                                  alt="instagram"></a></td>
+                      <td><a style="vertical-align:top" href="https://vimeo.com/purplestorytelling"
+                              target="_blank"><img style=""
+                                  src="https://purple-generic.s3.eu-central-1.amazonaws.com/signature/vimeo.png" width="24"
+                                  alt="vimeo"></a></td>
+                      <td><a style="vertical-align:top" href="https://www.youtube.com/@purpledigitalstorytelling"
+                              target="_blank"><img style=""
+                                  src="https://purple-generic.s3.eu-central-1.amazonaws.com/signature/youtube.png" width="24"
+                                  alt="youtube"></a></td>
+                  </tr>
+              </tbody>
+          </table>
       </td>
   </tr>
 </table>`;
@@ -75,10 +95,18 @@ export default function SignatureResult({
   linkedin: string;
 }) {
   const [copiedHtml, setCopiedHtml] = useState(false);
-  const html = Result({ name, title, phone, email });
+  const html = Result({ name, title, phone, email, linkedin });
 
-  const handleCopyHtml = () => {
-    navigator.clipboard.writeText(html);
+  const handleClickRichText = () => {
+    const richTextDiv = document.getElementById("result");
+
+    if (!richTextDiv) {
+      return;
+    }
+    const clipboardItem = new ClipboardItem({
+      "text/html": new Blob([richTextDiv.outerHTML], { type: "text/html" }),
+    });
+    navigator.clipboard.write([clipboardItem]);
     setCopiedHtml(true);
     setTimeout(() => {
       setCopiedHtml(false);
@@ -95,14 +123,14 @@ export default function SignatureResult({
       >
         <Container dangerouslySetInnerHTML={{ __html: html }} />
         <Container position="absolute" top="5px" right="5px">
-          <Tooltip text="Copy html">
-            <Button isIcon={true} onClick={handleCopyHtml}>
+          <Tooltip text="Copy rich text">
+            <Button isIcon={true} onClick={handleClickRichText}>
               <CopyIcon />
             </Button>
           </Tooltip>
         </Container>
       </Container>
-      {copiedHtml && <Snackbar label="Copied html" />}
+      {copiedHtml && <Snackbar label="Copied!" />}
     </Container>
   );
 }
