@@ -10,13 +10,11 @@ const Result = ({
   title,
   phone,
   email,
-  linkedin,
 }: {
   name: string;
   title: string;
   phone: string;
   email: string;
-  linkedin: string;
 }) => {
   return `<table id="result" style="font:90% Tahoma;font-size:initial;color:#000000;text-align: left;">
   <tr>
@@ -57,7 +55,7 @@ const Result = ({
           <table>
               <tbody>
                   <tr>
-                      <td><a style="vertical-align:top" href="${linkedin}"
+                      <td><a style="vertical-align:top" href="https://www.linkedin.com/company/purple-digital-storytelling/"
                               target="_blank"><img style=""
                                   src="https://purple-generic.s3.eu-central-1.amazonaws.com/signature/linkedin.png" width="24"
                                   alt="linkedin"></a></td>
@@ -86,16 +84,14 @@ export default function SignatureResult({
   title,
   email,
   phone,
-  linkedin,
 }: {
   name: string;
   title: string;
   email: string;
   phone: string;
-  linkedin: string;
 }) {
   const [copiedHtml, setCopiedHtml] = useState(false);
-  const html = Result({ name, title, phone, email, linkedin });
+  const html = Result({ name, title, phone, email });
 
   const handleClickRichText = () => {
     const richTextDiv = document.getElementById("result");
