@@ -21,7 +21,7 @@ const Result = ({
   return `<table id="result" style="font:90% Tahoma;font-size:initial;color:#000000;text-align: left;">
   <tr>
       <td style="vertical-align:top;padding:0 8px 5px 0"><a href="https://www.purplestorytelling.com/"
-              target="_blank"><img src="https://purple-generic.s3.eu-central-1.amazonaws.com/signature/email-sig-img.png" style="display:block" width="250"
+              target="_blank"><img src="https://purple-generic.s3.eu-central-1.amazonaws.com/signature/email-sig-img.png" style="display:block" width="200"
                   alt="photo-logo" /></a></td>
       <td style="vertical-align:top;color:#979797;font:90% Tahoma;border-left:3px solid #979797;padding:0 0 5px 8px">
           <div style="color:#040404;font-size:1.3em">
