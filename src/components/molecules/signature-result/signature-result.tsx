@@ -119,7 +119,7 @@ export default function SignatureResult({
       >
         <Container dangerouslySetInnerHTML={{ __html: html }} />
         <Container position="absolute" top="5px" right="5px">
-          <Tooltip text="Copy signature">
+          <Tooltip text="Copy signature!">
             <Button isIcon={true} onClick={handleClickRichText}>
               <CopyIcon />
             </Button>
