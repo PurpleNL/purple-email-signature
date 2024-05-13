@@ -5,7 +5,7 @@ import CopyIcon from "../../atoms/icons/copy";
 import Snackbar from "../../atoms/snackbar/snackbar";
 import Tooltip from "../../atoms/tooltip/tooltip";
 
-const signatureImage = `https://purple-generic.s3.eu-central-1.amazonaws.com/signature/email-sig-img-v4.png`
+const signatureImage = `https://purple-generic.s3.eu-central-1.amazonaws.com/signature/email-sig-img.png`
 
 const Result = ({
   name,
