@@ -11,14 +11,6 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
@@ -27,8 +19,12 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
 ## CICD
 
 We deploy the main branch directly to [https://signature.purpleapps.nl](https://signature.purpleapps.nl) using AWS Amplify. See the amplify config in [/amplify.yml`](./amplify.yml)
+
+## Updating email signature image
+
+Regularly we have to update the email signature image that is used in our Purple emails. We update the email signature by uploading **a new version** of our email signature in our S3 bucket `purple-generic` ([link](https://eu-central-1.console.aws.amazon.com/s3/buckets/purple-generic)) in the folder `signature`. In order to upload a new version, you must upload an object in folder `signature` with the name `email-sig-img.png`. You can validate whether a new version has been created by navigating to the object `email-sig-img.png` and viewing the `versions` tab.
+
+<img width="1805" alt="Screenshot 2024-05-13 at 10 41 05" src="https://github.com/PurpleNL/purple-email-signature/assets/141142844/cbfbac03-14f4-43c5-b943-9c327031f0fa">
